@@ -704,7 +704,7 @@ def main():
                                      'Best Accs: ' + ''.join(["{:.2f}% ".format(100 * c_val_acc)
                                                               for _, c_val_acc in best_accuracy_each_c]) + '\n'])
 
-                best_result_path = os.path.join('./output', '{}_best_result.txt'.format(
+                best_result_path = os.path.join(args.save_dir, '{}_best_result.txt'.format(
                     os.path.splitext(os.path.basename(__file__))[0]))
                 with open(best_result_path, 'a+') as f:
                     f.writelines(contents)
