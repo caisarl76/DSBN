@@ -1,15 +1,20 @@
 #!/bin/bash
 
 
-save_dir=${4}
-src=${3}
-trg=${2}
 gpu=${1}
+src=${2}
+trg=${3}
+save_dir=${4}
 
 
 
 
 function stage1(){
+	echo gpu ${1} 
+	echo src ${2}  trg ${3}
+	echo save_dir ${4}
+
+
 	CUDA_VISIBLE_DEVICES=${1} python trainval_multi.py --model-name resnet50dsbn --exp-setting office-home --sm-loss --adv-loss \
 		--source-datasets ${2} --target-datasets ${3} \
 		--batch-size 40 --print-console --save-dir ${4}/${2}_${3}/stage1
@@ -25,8 +30,10 @@ function stage2(){
 
 
 
-stage1 gpu src trg save_dir
-stage2 gpu src trg save_dir
+stage1 ${1} ${2} ${3} ${4}
+
+stage2 ${1} ${2} ${3} ${4}
+
 
 
 
