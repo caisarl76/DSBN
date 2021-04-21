@@ -164,7 +164,7 @@ def main():
         logger.info('\nArguments:\n' + pprint.pformat(vars(args), indent=4))  # print args
     torch.save(vars(args), os.path.join(args.save_dir, 'args_dict.pth'))  # save args
 
-    num_classes = args.num_classes
+    num_classes = 65
     # args.in_features = args.in_features if args.in_features != 0 else num_classes
     args.in_features = 0
     in_features = args.in_features
