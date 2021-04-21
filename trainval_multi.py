@@ -165,7 +165,8 @@ def main():
     torch.save(vars(args), os.path.join(args.save_dir, 'args_dict.pth'))  # save args
 
     num_classes = args.num_classes
-    args.in_features = args.in_features if args.in_features != 0 else num_classes
+    # args.in_features = args.in_features if args.in_features != 0 else num_classes
+    args.in_features = 0
     in_features = args.in_features
     num_domains = len(args.source_datasets) + len(args.target_datasets)
     if args.merge_sources:
