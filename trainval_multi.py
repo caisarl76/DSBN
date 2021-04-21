@@ -166,6 +166,7 @@ def main():
 
     num_classes = args.num_classes
     args.in_features = args.in_features if args.in_features != 0 else num_classes
+    in_features = args.in_features
     num_domains = len(args.source_datasets) + len(args.target_datasets)
     if args.merge_sources:
         num_source_domains = 1
@@ -235,7 +236,6 @@ def main():
     #                                               Model Loading                                                     #
     ###################################################################################################################
     model = get_model(args.model_name, args.num_classes, args.in_features, num_domains=num_domains, pretrained=True)
-    print(args.model_name, args.num_classes, args.in_features, num_domains)
 
     model.train(True)
     if args.resume:
@@ -449,7 +449,6 @@ def main():
 
             Floss = Floss + adaptation_lambda * semantic_loss
 
-   
         # Floss backward
         Floss.backward()
         optimizer.step()
