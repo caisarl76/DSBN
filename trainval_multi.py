@@ -165,8 +165,8 @@ def main():
     torch.save(vars(args), os.path.join(args.save_dir, 'args_dict.pth'))  # save args
 
     num_classes = 65
-    # args.in_features = args.in_features if args.in_features != 0 else num_classes
-    args.in_features = 0
+    args.in_features = args.in_features if args.in_features != 0 else num_classes
+    # args.in_features = 0
     in_features = args.in_features
     num_domains = len(args.source_datasets) + len(args.target_datasets)
     if args.merge_sources:
@@ -236,7 +236,7 @@ def main():
     ###################################################################################################################
     #                                               Model Loading                                                     #
     ###################################################################################################################
-    model = get_model(args.model_name, args.num_classes, args.in_features, num_domains=num_domains, pretrained=True)
+    model = get_model(args.model_name, args.num_classes, 0, num_domains=num_domains, pretrained=True)
 
     model.train(True)
     if args.resume:
