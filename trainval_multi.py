@@ -235,7 +235,7 @@ def main():
     #                                               Model Loading                                                     #
     ###################################################################################################################
     model = get_model(args.model_name, args.num_classes, args.in_features, num_domains=num_domains, pretrained=True)
-    print(args.model_name, args.num_classes, args.in_features, num_domains=num_domains, pretrained=True)
+    print(args.model_name, args.num_classes, args.in_features, num_domains)
 
     model.train(True)
     if args.resume:
