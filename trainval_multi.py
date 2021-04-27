@@ -38,7 +38,7 @@ def parse_args(args=None, namespace=None):
                     'visDA: train, validation]')
     parser.add_argument('--model-name',
                         help="model name ['lenet',  'resnet50', 'resnet50dsbn', 'resnet101', 'resnet101dsbn']",
-                        default='resnet50', type=str)
+                        default='resnet50dsbn', type=str)
     parser.add_argument('--exp-setting', help='exp setting[digits, office, imageclef, visda]', default='office',
                         type=str)
     parser.add_argument('--init-model-path', help='init model path', default='', type=str)

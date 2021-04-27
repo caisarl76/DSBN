@@ -681,7 +681,7 @@ def main():
                         'srcs_centroids': [src_centroids.cpu().state_dict() for src_centroids in srcs_centroids],
                         'trgs_centroids': [trg_centroids.cpu().state_dict() for trg_centroids in trgs_centroids]}
                 # save best checkpoint
-                io_utils.save_checkpoints(args.save_dir, options, i_iter, model_dict, optimizer_dict, centroids_dict,
+                io_utils.save_checkpints(args.save_dir, options, i_iter, model_dict, optimizer_dict, centroids_dict,
                                           logger, best=True)
                 # ship to cuda
                 model = model.cuda(args.gpu)
